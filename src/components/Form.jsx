@@ -1,37 +1,18 @@
 // React 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import DatePicker from 'react-datepicker';
 import Select from "react-select";
 import 'react-datepicker/dist/react-datepicker.css';
-import Modal from 'react-modal';
-import { useNavigate } from 'react-router';
-
 // Data 
 import { department, state } from "../data/data";
-// Services 
+// Components 
+import ModalForm from "./Modal";
+
 export default function Form() {
 
     const [stateForm, setStateForm] = useState({})
     const [dateOfBirth, setDateOfBirth] = useState(new Date())
     const [startDate, setStartDate] = useState(new Date())
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-
-
-    const [modal, setModal] = useState(false);
-
-    const toggleModal = () => {
-      setModal(!modal);
-    };
-  
-    if(modal) {
-      document.body.classList.add('active-modal')
-    } else {
-      document.body.classList.remove('active-modal')
-    }
-  
-
 
     return(
         <div className='form'>
@@ -76,23 +57,8 @@ export default function Form() {
                     <label htmlFor="department">Department</label>
                     <Select id="department" options={department} onChange={(e) => setStateForm({ ...stateForm, department: e.value })} defaultValue={null} />
                 </div>
-                <div className="form-group">
-                    <button className="submit_button" onClick={toggleModal}  type="submit">Save</button>
-                </div>
             </form>
-            {modal && (
-            <div className="modal">
-            <div onClick={toggleModal} className="overlay"></div>
-            <div className="modal-content">
-                <h2>Employee created</h2>
-                <button className="close-modal" onClick={toggleModal}>
-                X
-                </button>
-            </div>
-            </div>
-        )}
-
-
+            <ModalForm />
         </div>
     )
 }

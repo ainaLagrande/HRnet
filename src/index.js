@@ -15,13 +15,11 @@ import "./css/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <App />
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/employee" element={<Employee />} />
-
       </Routes>
      </BrowserRouter>
   </Provider>

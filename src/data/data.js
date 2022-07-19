@@ -115,147 +115,163 @@ export const state = [
     value: "ME"
   },
   {
-      label: "Marshall Islands",
-      value: "MH"
+    label: "Marshall Islands",
+    value: "MH"
   },
   {
-      name: "Maryland",
-      value: "MD"
+    name: "Maryland",
+    value: "MD"
   },
   {
-      label: "Massachusetts",
-      value: "MA"
+    label: "Massachusetts",
+    value: "MA"
   },
   {
-      label: "Michigan",
-      value: "MI"
+    label: "Michigan",
+    value: "MI"
   },
   {
-      label: "Minnesota",
-      value: "MN"
+    label: "Minnesota",
+    value: "MN"
   },
   {
-      label: "Mississippi",
-      value: "MS"
+    label: "Mississippi",
+    value: "MS"
   },
   {
-      label: "Missouri",
-      value: "MO"
+    label: "Missouri",
+    value: "MO"
   },
   {
-      label: "Montana",
-      value: "MT"
+    label: "Montana",
+    value: "MT"
   },
   {
-      label: "Nebraska",
-      value: "NE"
+    label: "Nebraska",
+    value: "NE"
   },
   {
-      label: "Nevada",
-      value: "NV"
+    label: "Nevada",
+    value: "NV"
   },
   {
-      label: "New Hampshire",
-      value: "NH"
+    label: "New Hampshire",
+    value: "NH"
   },
   {
-      label: "New Jersey",
-      value: "NJ"
+    label: "New Jersey",
+    value: "NJ"
   },
   {
-      label: "New Mexico",
-      value: "NM"
+    label: "New Mexico",
+    value: "NM"
   },
   {
-      label: "New York",
-      value: "NY"
+    label: "New York",
+    value: "NY"
   },
   {
-      label: "North Carolina",
-      value: "NC"
+    label: "North Carolina",
+    value: "NC"
   },
   {
-      label: "North Dakota",
-      value: "ND"
+    label: "North Dakota",
+    value: "ND"
   },
   {
-      label: "Northern Mariana Islands",
-      value: "MP"
+    label: "Northern Mariana Islands",
+    value: "MP"
   },
   {
-      label: "Ohio",
-      value: "OH"
+    label: "Ohio",
+    value: "OH"
   },
   {
-      label: "Oklahoma",
-      value: "OK"
+    label: "Oklahoma",
+    value: "OK"
   },
   {
-      label: "Oregon",
-      value: "OR"
+    label: "Oregon",
+    value: "OR"
   },
   {
-      label: "Palau",
-      value: "PW"
+    label: "Palau",
+    value: "PW"
   },
   {
-      label: "Pennsylvania",
-      value: "PA"
+    label: "Pennsylvania",
+    value: "PA"
   },
   {
-      label: "Puerto Rico",
-      value: "PR"
+    label: "Puerto Rico",
+    value: "PR"
   },
   {
-      label: "Rhode Island",
-      value: "RI"
+    label: "Rhode Island",
+    value: "RI"
   },
   {
-      label: "South Carolina",
-      value: "SC"
+    label: "South Carolina",
+    value: "SC"
   },
   {
-      label: "South Dakota",
-      value: "SD"
+    label: "South Dakota",
+    value: "SD"
   },
   {
-      label: "Tennessee",
-      value: "TN"
+    label: "Tennessee",
+    value: "TN"
   },
   {
-      label: "Texas",
-      value: "TX"
+    label: "Texas",
+    value: "TX"
   },
   {
-      label: "Utah",
-      value: "UT"
+    label: "Utah",
+    value: "UT"
   },
   {
-      label: "Vermont",
-      value: "VT"
+    label: "Vermont",
+    value: "VT"
   },
   {
-      label: "Virgin Islands",
-      value: "VI"
+    label: "Virgin Islands",
+    value: "VI"
   },
   {
-      label: "Virginia",
-      value: "VA"
+    label: "Virginia",
+    value: "VA"
   },
   {
-      label: "Washington",
-      value: "WA"
+    label: "Washington",
+    value: "WA"
   },
   {
-      label: "West Virginia",
-      value: "WV"
+    label: "West Virginia",
+    value: "WV"
   },
   {
-      label: "Wisconsin",
-      value: "WI"
+    label: "Wisconsin",
+    value: "WI"
   },
   {
-      label: "Wyoming",
-      value: "WY"
+    label: "Wyoming",
+    value: "WY"
   }
+]
+export const data =
+[
+  {
+    id: 1,
+    firstName: 'Marie',
+    lastName: 'Siple',
+    startDate: '10/10/2020',
+    department: 'Sales',
+    dateOfBirth: '08/09/1995',
+    street: 'stree',
+    city: 'Le Scra',
+    state: 'AL',
+    zipCode: 35000
+  }
+
 ]
