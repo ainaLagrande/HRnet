@@ -1,4 +1,8 @@
+// React 
+import { NavLink } from "react-router-dom";
+// Components 
 import Form from "../components/Form"
+
 
 export default function Home() {
     return (<div className="main_home">
@@ -6,10 +10,11 @@ export default function Home() {
             <h1>HRnet</h1>
         </div>
         <div className="container">
-            <a href="employee-list.html">View Current Employees</a>
+        <NavLink to="/employee">
+            View Current Employees
+            </NavLink>
             <h2>Create Employee</h2>
             <Form />
         </div>
-        {/* <div id="confirmation" className="modal">Employee Created!</div> */}
     </div>)
 }
