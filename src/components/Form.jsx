@@ -1,11 +1,8 @@
-// React 
-import { useState } from "react";
-import DatePicker from 'react-datepicker';
 import Select from "react-select";
-import 'react-datepicker/dist/react-datepicker.css';
-// Data 
 import { department, state } from "../data/data";
-// Components 
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import { useState } from "react";
 import ModalForm from "./Modal";
 
 export default function Form() {
@@ -14,7 +11,7 @@ export default function Form() {
     const [dateOfBirth, setDateOfBirth] = useState(new Date())
     const [startDate, setStartDate] = useState(new Date())
 
-    return(
+    return (
         <div className='form'>
             <form id="employeeCreate" >
                 <div className="form-group">
@@ -60,4 +57,5 @@ export default function Form() {
             <ModalForm />
         </div>
     )
+
 }
