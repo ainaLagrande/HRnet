@@ -1,90 +1,107 @@
-import React from 'react'
-import DataTable from 'react-data-table-component'
-import DataTableExtensions from 'react-data-table-component-extensions';
-import 'react-data-table-component-extensions/dist/index.css';
-import { Link } from 'react-router-dom'
-import { createContext } from "react";
+import { useMemo, useState } from "react";
+import DataTable from "react-data-table-component";
+import { connect } from "react-redux"
 
+function ListEmployees(props) {
 
-const FormContext = createContext([]);
-  function formatDate(date){
-    return date.split('-').reverse().join('-')
-  }
+    const employees = props.employees
+    console.log("LISTS EMPLOYEES :", props.employees);
 
-  const columns = [
-    {
-      name: 'First Name',
-      selector: row => row.firstName,
-      sortable: true,
-    },
-    {
-      name: 'Last Name',
-      selector: row => row.lastName,
-      sortable: true,
-    },
-    {
-      name: 'Birth date',
-      selector: row => row.birthDate,
-      format: row => formatDate(row.birthDate),
-      sortable: true,
-    },
-    {
-      name: 'Start Date',
-      selector: row => row.startDate,
-      format: row => formatDate(row.startDate),
-      sortable: true,
-    },
-    {
-      name: 'Street',
-      selector: row => row.street,
-      sortable: true,
-    },
-    {
-      name: 'City',
-      selector: row => row.city,
-      sortable: true,
-    },
-    {
-      name: 'State',
-      selector: row => row.state,
-      sortable: true,
-    },
-    {
-      name: 'Zip Code',
-      selector: row => row.zipCode,
-      sortable: true,
-    },
-    {
-      name: 'Department',
-      selector: row => row.department,
-      sortable: true,
-    },
-];
+    const FilterComponent = ({ filterText, onFilter, onClear }) => (
+        <>
+            <input
+        		id="search"
+        			type="text"
+        			placeholder="Filter By Name"
+        			aria-label="Search Input"
+        			value={filterText}
+        			onChange={onFilter}
+        		/>
+        		<button type="button" onClick={onClear}>
+        			X
+        		</button>
+        	</>
+        );
 
-export default function Employee() {
+    const columns = [
+        {
+            name: 'Prénom',
+            selector: row => row.firstName
+        },
+        {
+            name: 'Nom',
+            selector: row => row.lastName
+        },
+        {
+            name: 'Date of Birth',
+            selector: row => row.dateOfBirth
+        },
+        {
+            name: 'Start Date',
+            selector: row => row.startDate
+        },
+        {
+            name: 'Street',
+            selector: row => row.street
+        },
+        {
+            name: 'Ville',
+            selector: row => row.city
+        },
+        {
+            name: 'State',
+            selector: row => row.state
+        },
+        {
+            name: 'Zip Code',
+            selector: row => row.zipCode
+        },
+        {
+            name: 'Department',
+            selector: row => row.department
+        }
+    ]
 
-  return (
-    <>
-    <FormContext.Consumer>
-    {
-      value => 
-      <DataTableExtensions
-      columns={columns}
-      data={value.allValues}
-      export={false}
-      print={false}
-      filterPlaceholder={"Search"}
-    >
-      <DataTable
-      columns={columns}
-      data={value.allValues}
-      pagination
-      highlightOnHover
-  />
-  </DataTableExtensions>
-    }
-</FormContext.Consumer>
-<Link to={'/'}>Home</Link>
-</>
-  )
+    const [filterText, setFilterText] = useState('');
+	const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+	const filteredItems = employees.filter(
+		item => item.firstName && item.firstName.toLowerCase().includes(filterText.toLowerCase()),
+	);
+
+	const subHeaderComponentMemo = useMemo(() => {
+		const handleClear = () => {
+			if (filterText) {
+				setResetPaginationToggle(!resetPaginationToggle);
+				setFilterText('');
+			}
+		};
+
+		return (
+			<FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText} />
+		);
+	}, [filterText, resetPaginationToggle]);
+
+    return (
+        <div>
+            <h1>LIST EMPLOYEES</h1>
+            <DataTable title="Contact List"
+			columns={columns}
+			data={filteredItems}
+            
+			pagination
+			paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
+			subHeader
+			subHeaderComponent={subHeaderComponentMemo}
+			selectableRows
+			persistTableHead />
+            <a href='/'>HOME</a>
+        </div>
+    )
+
 }
+
+export default connect(
+    (state) => ({
+        employees: state.employees
+    })
+)(ListEmployees)
