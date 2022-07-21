@@ -1,15 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
-import employeesReducer from '../features/employees'
+import { createStore } from 'redux'
+import { combineReducers } from 'redux'
+import EmployeeReducer from '../features/employees'
 
-export const store = configureStore({
-	reducer: {
-		employees: employeesReducer,
-	},
-})
+const store = createStore(
+    combineReducers({
+        employees: EmployeeReducer
+    })
+)
 
-store.subscribe(() => {
-	localStorage.setItem(
-		'employees',
-		JSON.stringify(store.getState().employees)
-	)
-})
+export default store

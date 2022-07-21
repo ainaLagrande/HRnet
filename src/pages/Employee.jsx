@@ -1,11 +1,15 @@
+// React 
 import { useMemo, useState } from "react";
 import DataTable from "react-data-table-component";
 import { connect } from "react-redux"
+// Data 
+import { columns } from "../data/data";
 
 function ListEmployees(props) {
 
     const employees = props.employees
-    console.log("LISTS EMPLOYEES :", props.employees);
+    console.log("LISTS EMPLOYEES :", employees);
+
 
     const FilterComponent = ({ filterText, onFilter, onClear }) => (
         <>
@@ -23,47 +27,9 @@ function ListEmployees(props) {
         	</>
         );
 
-    const columns = [
-        {
-            name: 'Prénom',
-            selector: row => row.firstName
-        },
-        {
-            name: 'Nom',
-            selector: row => row.lastName
-        },
-        {
-            name: 'Date of Birth',
-            selector: row => row.dateOfBirth
-        },
-        {
-            name: 'Start Date',
-            selector: row => row.startDate
-        },
-        {
-            name: 'Street',
-            selector: row => row.street
-        },
-        {
-            name: 'Ville',
-            selector: row => row.city
-        },
-        {
-            name: 'State',
-            selector: row => row.state
-        },
-        {
-            name: 'Zip Code',
-            selector: row => row.zipCode
-        },
-        {
-            name: 'Department',
-            selector: row => row.department
-        }
-    ]
-
     const [filterText, setFilterText] = useState('');
 	const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+
 	const filteredItems = employees.filter(
 		item => item.firstName && item.firstName.toLowerCase().includes(filterText.toLowerCase()),
 	);
@@ -102,6 +68,8 @@ function ListEmployees(props) {
 
 export default connect(
     (state) => ({
-        employees: state.employees
+        employees: state.employees,
     })
+    
 )(ListEmployees)
+

@@ -259,19 +259,43 @@ export const state = [
     value: "WY"
   }
 ]
-export const data =
-[
-  {
-    id: 1,
-    firstName: 'Marie',
-    lastName: 'Siple',
-    startDate: '10/10/2020',
-    department: 'Sales',
-    dateOfBirth: '08/09/1995',
-    street: 'stree',
-    city: 'Le Scra',
-    state: 'AL',
-    zipCode: 35000
-  }
 
+export const columns = [
+  {
+    name: 'Prénom',
+    selector: row => row.firstName
+  },
+  {
+    name: 'Nom',
+    selector: row => row.lastName
+  },
+  {
+    name: 'Date of Birth',
+    selector: row => row.dateOfBirth
+  },
+  {
+    name: 'Start Date',
+    selector: row => row.startDate
+  },
+  {
+    name: 'Street',
+    selector: row => row.street
+  },
+  {
+    name: 'Ville',
+    selector: row => row.city
+  },
+  {
+    name: 'State',
+    selector: row => row.state
+  },
+  {
+    name: 'Zip Code',
+    selector: row => row.zipCode
+  },
+  {
+    name: 'Department',
+    selector: row => row.department
+  }
 ]
+
