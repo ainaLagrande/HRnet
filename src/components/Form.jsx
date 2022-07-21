@@ -35,7 +35,6 @@ export default function Form() {
                 </div>
                 <fieldset>
                     <legend>Address</legend>
-
                     <div className="form-group">
                         <label htmlFor="street">Street</label>
                         <input type='text' id="street" />
