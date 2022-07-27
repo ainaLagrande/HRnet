@@ -49,8 +49,8 @@ function ListEmployees(props) {
 
     return (
         <div>
-            <h1>LIST EMPLOYEES</h1>
-            <DataTable title="Contact List"
+            <h1>Current Employees</h1>
+            <DataTable 
 			columns={columns}
 			data={filteredItems}
             
@@ -60,7 +60,7 @@ function ListEmployees(props) {
 			subHeaderComponent={subHeaderComponentMemo}
 			selectableRows
 			persistTableHead />
-            <a href='/'>HOME</a>
+            <a href='/'>Home</a>
         </div>
     )
 

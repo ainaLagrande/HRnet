@@ -7,7 +7,6 @@ import  store  from "./services/store";
 
 // Components 
 import Home from './pages/Home';
-import App from './App';
 import Employee from './pages/Employee';
 // Style 
 import "./css/style.css";

@@ -1,15 +1,19 @@
-import Modal from 'react-modal'
+// import Modal from 'react-modal'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useDispatch } from "react-redux"
+import app from "@ainahrnet/dist/index.js"
 
 function ModalForm () {
 
+  const [isOpen, setOpen] = useState(false);
   const [stateForm, setStateForm] = useState({})
   const [dateOfBirth, setDateOfBirth] = useState(new Date())
   const [startDate, setStartDate] = useState(new Date())
   const dispatch = useDispatch()
   const [modalIsOpen, setIsOpen] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+
   const navigate = useNavigate()
 
   function saveEmployee () {
@@ -50,10 +54,11 @@ function ModalForm () {
     navigate('/employee')
   }
 
+  const [stateModal, setStateModal] = useState(false)
   return (
     <>
     <button onClick={openModal} className="submit_button" id='button-save'>Save</button>
-    <Modal
+    {/* <Modal
       className='modal'
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
@@ -64,7 +69,10 @@ function ModalForm () {
         <h3> Employee Created ! </h3>
         <button onClick={closeModal} className="close-modal">x</button>
       </div>
-    </Modal>
+    </Modal> */}
+
+    {/* <Modal content='Employee created' show={showModal} onClose={() => setShowModal(false)} /> */}
+    <app/>
     </>
   )
 }
