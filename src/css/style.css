@@ -2,7 +2,6 @@
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
-
 }
 button{
     cursor: pointer;
@@ -73,41 +72,26 @@ fieldset{
     border: 2px solid #a8ae94;
     padding: 5% 1% 5% 1%;
 }
-
-/* Modal  */
-.modal, .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-}
-
-.overlay {
-    background: rgba(49,49,49,0.8);
-}
-.modal-content {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 1.4;
-    background: #a8ae94;
-    padding: 14px 28px;
-    height: 200px;
-    border-radius: 3px;
-    width: 600px;
-    color: white;
+/* Error page  */
+.Error{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    position: relative;
+    margin-bottom: 3%;
 }
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 7px;
+.Error h1{
+    font-size: 288px;
+    font-weight: 700;
+}
+.Error p{
+    font-size: 36px;
+    font-weight: 500;
+}
+.Error a{
+    border-bottom: 1px solid #a8ae94;   
+    text-decoration: none;
+    color:#2c3e50;  
 }

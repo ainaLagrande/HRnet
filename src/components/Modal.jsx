@@ -1,24 +1,21 @@
-// import Modal from 'react-modal'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useDispatch } from "react-redux"
-import app from "@ainahrnet/dist/index.js"
+import  Modal  from "modal-react-hrnet";
+
 
 function ModalForm () {
 
-  const [isOpen, setOpen] = useState(false);
-  const [stateForm, setStateForm] = useState({})
-  const [dateOfBirth, setDateOfBirth] = useState(new Date())
-  const [startDate, setStartDate] = useState(new Date())
+  const [stateForm] = useState({})
+  const [dateOfBirth] = useState(new Date())
+  const [startDate] = useState(new Date())
   const dispatch = useDispatch()
-  const [modalIsOpen, setIsOpen] = useState(false)
-  const [showModal, setShowModal] = useState(false)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const navigate = useNavigate()
 
   function saveEmployee () {
     const form = document.querySelector('#employeeCreate')
-
     const newEmployee = {
     firstName: form.firstName.value,
     lastName: form.lastName.value,
@@ -46,33 +43,25 @@ function ModalForm () {
 
   function openModal () {
     saveEmployee()
-    setIsOpen(true)
+    setModalIsOpen(true)
   }
 
   function closeModal () {
-    setIsOpen(false)
+    setModalIsOpen(false)
     navigate('/employee')
   }
 
-  const [stateModal, setStateModal] = useState(false)
   return (
     <>
     <button onClick={openModal} className="submit_button" id='button-save'>Save</button>
-    {/* <Modal
-      className='modal'
-      isOpen={modalIsOpen}
-      onRequestClose={closeModal}
-      appElement={document.getElementById('root') || undefined}
-    >
-      <div  className="overlay"></div>
-      <div className="modal-content">
-        <h3> Employee Created ! </h3>
-        <button onClick={closeModal} className="close-modal">x</button>
-      </div>
-    </Modal> */}
 
-    {/* <Modal content='Employee created' show={showModal} onClose={() => setShowModal(false)} /> */}
-    <app/>
+    {modalIsOpen && (
+      <Modal
+        setOpen={setModalIsOpen}
+        message="Employee created"
+        buttonText="Close" 
+      />
+    )}
     </>
   )
 }

@@ -7,5 +7,4 @@ const store = createStore(
         employees: EmployeeReducer
     })
 )
-
 export default store

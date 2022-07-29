@@ -6,26 +6,15 @@ import { connect } from "react-redux"
 import { columns } from "../data/data";
 
 function ListEmployees(props) {
-
     const employees = props.employees
     console.log("LISTS EMPLOYEES :", employees);
 
-
     const FilterComponent = ({ filterText, onFilter, onClear }) => (
         <>
-            <input
-        		id="search"
-        			type="text"
-        			placeholder="Filter By Name"
-        			aria-label="Search Input"
-        			value={filterText}
-        			onChange={onFilter}
-        		/>
-        		<button type="button" onClick={onClear}>
-        			X
-        		</button>
-        	</>
-        );
+            <input id="search" type="text" placeholder="Filter By Name" aria-label="Search Input" value={filterText} onChange={onFilter} />
+			<button type="button" onClick={onClear}> X </button>
+		</>
+	);
 
     const [filterText, setFilterText] = useState('');
 	const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
