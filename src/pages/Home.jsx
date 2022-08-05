@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 // Components 
 import Form from "../components/Form"
 
-
 export default function Home() {
     return (<div className="main_home">
          <div className="title">
@@ -17,4 +16,5 @@ export default function Home() {
             <Form />
         </div>
     </div>)
+   
 }

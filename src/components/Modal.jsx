@@ -1,18 +1,13 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router'
 import { useDispatch } from "react-redux"
 import  Modal  from "modal-react-hrnet";
 
-
 function ModalForm () {
-
   const [stateForm] = useState({})
   const [dateOfBirth] = useState(new Date())
   const [startDate] = useState(new Date())
   const dispatch = useDispatch()
   const [modalIsOpen, setModalIsOpen] = useState(false)
-
-  const navigate = useNavigate()
 
   function saveEmployee () {
     const form = document.querySelector('#employeeCreate')
@@ -42,19 +37,13 @@ function ModalForm () {
 }
 
   function openModal () {
-    saveEmployee()
     setModalIsOpen(true)
+    saveEmployee()
   }
 
-  function closeModal () {
-    setModalIsOpen(false)
-    navigate('/employee')
-  }
-
-  return (
+  return ( 
     <>
     <button onClick={openModal} className="submit_button" id='button-save'>Save</button>
-
     {modalIsOpen && (
       <Modal
         setOpen={setModalIsOpen}
@@ -64,6 +53,7 @@ function ModalForm () {
     )}
     </>
   )
+  
 }
 
 export default ModalForm
